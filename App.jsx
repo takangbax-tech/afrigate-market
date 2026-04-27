@@ -961,10 +961,9 @@ export default function AfriGateMarket() {
     notify(tr(lang,"✅ Review posted! Thank you.","✅ Avis publié! Merci."));
   };
 
-  // ── Email notifications (EmailJS free tier) ─────────────────────────────────
-  // To activate: sign up at emailjs.com, get your Service ID, Template IDs and Public Key
-  const EMAILJS_SERVICE  = "YOUR_SERVICE_ID";   // replace after signing up
-  const EMAILJS_PUB_KEY  = "YOUR_PUBLIC_KEY";   // replace after signing up
+  // ── Email notifications via EmailJS ─────────────────────────────────────────
+  const EMAILJS_SERVICE  = "service_7ys54l9";
+  const EMAILJS_PUB_KEY  = "7OnFUMY29lyLw38cb";
 
   const sendEmail = async (templateId, params) => {
     try {
@@ -978,36 +977,48 @@ export default function AfriGateMarket() {
           template_params: params,
         }),
       });
-    } catch(e) { /* silent fail if not configured */ }
+    } catch(e) { console.log("Email error:", e); }
   };
 
   const sendWelcomeEmail = (user) => sendEmail("template_welcome", {
     to_name:  user.fullName,
     to_email: user.email,
-    reply_to: "admin@afrigate.cm",
-    message:  `Welcome to AfriGate Market, ${user.fullName}! Your account is ready. Start exploring listings across Africa and Europe.`,
+    from_name: "AfriGate Market",
+    reply_to: "afrigatemarketplace@gmail.com",
+    message:  `Bienvenue / Welcome to AfriGate Market, ${user.fullName}!\n\nYour account has been created successfully. You can now browse listings, post your products and connect with buyers and sellers across Africa and Europe.\n\nStart exploring: afrigate-market-iess.vercel.app\n\nBest regards,\nThe AfriGate Market Team\nafrigatemarketplace@gmail.com`,
   });
 
-  const sendListingSubmittedEmail = (user, listing) => sendEmail("template_listing", {
-    to_name:    user?.fullName || listing.seller_name,
-    to_email:   user?.email   || "",
-    listing:    listing.title,
-    reply_to:   "admin@afrigate.cm",
-    message:    `Your listing "${listing.title}" has been received and is currently under review. You will be notified once it is approved.`,
-  });
-
-  const sendListingApprovedEmail = (listing) => {
-    // find user by seller name — notify if we have their email
-    const user = registeredUsers.find(u => u.fullName === listing.seller_name);
-    if (!user) return;
-    sendEmail("template_approved", {
-      to_name:  user.fullName,
-      to_email: user.email,
-      listing:  listing.title,
-      reply_to: "admin@afrigate.cm",
-      message:  `Great news! Your listing "${listing.title}" has been approved and is now LIVE on AfriGate Market. Buyers can now find and contact you.`,
+  const sendListingSubmittedEmail = (user, listing) => {
+    if (!user?.email) return;
+    sendEmail("template_listing", {
+      to_name:   user.fullName,
+      to_email:  user.email,
+      from_name: "AfriGate Market",
+      reply_to:  "afrigatemarketplace@gmail.com",
+      listing:   listing.title,
+      message:   `Dear ${user.fullName},\n\nYour listing "${listing.title}" has been successfully received and is currently under review by our team.\n\nYou will receive another email once your listing is approved and live on AfriGate Market.\n\nThank you for choosing AfriGate Market!\n\nBest regards,\nThe AfriGate Market Team`,
     });
   };
+
+  const sendListingApprovedEmail = (listing) => {
+    const user = registeredUsers.find(u => u.fullName === listing?.seller_name);
+    if (!user?.email) return;
+    sendEmail("template_approved", {
+      to_name:   user.fullName,
+      to_email:  user.email,
+      from_name: "AfriGate Market",
+      reply_to:  "afrigatemarketplace@gmail.com",
+      listing:   listing.title,
+      message:   `Great news, ${user.fullName}!\n\nYour listing "${listing.title}" has been APPROVED and is now LIVE on AfriGate Market!\n\nBuyers across Africa and Europe can now find and contact you.\n\nView your listing: afrigate-market-iess.vercel.app\n\nBest regards,\nThe AfriGate Market Team`,
+    });
+  };
+
+  const sendForgotPasswordEmail = (email) => sendEmail("template_forgot", {
+    to_email:  email,
+    from_name: "AfriGate Market",
+    reply_to:  "afrigatemarketplace@gmail.com",
+    message:   `You requested a password reset for your AfriGate Market account.\n\nFor security reasons, please contact us directly at afrigatemarketplace@gmail.com with your registered email and we will reset your password within 24 hours.\n\nIf you did not request this, please ignore this email.\n\nBest regards,\nThe AfriGate Market Team`,
+  });
 
   // ── Registered users store (local + Supabase) ────────────────────────────────
   const [registeredUsers, setRegisteredUsers] = useState([]);
@@ -2039,6 +2050,23 @@ export default function AfriGateMarket() {
                         opacity: authLoading ? .7 : 1 }}>
                       {authLoading ? <Spinner/> : tr(lang,"Sign In →","Se Connecter →")}
                     </button>
+                    <div style={{ textAlign:"center" }}>
+                      <button onClick={() => {
+                        if (!loginForm.email.includes("@")) {
+                          setAuthErr("Please enter your email address first.");
+                          return;
+                        }
+                        sendForgotPasswordEmail(loginForm.email);
+                        setAuthErr("");
+                        notify(tr(lang,
+                          `✅ Password reset email sent to ${loginForm.email}`,
+                          `✅ Email de réinitialisation envoyé à ${loginForm.email}`));
+                      }}
+                        style={{ background:"none", border:"none", color:C.slate,
+                          fontSize:12, cursor:"pointer", marginTop:4 }}>
+                        {tr(lang,"Forgot your password?","Mot de passe oublié?")}
+                      </button>
+                    </div>
                     <div style={{ textAlign:"center" }}>
                       <button onClick={() => { setAuthTab("register"); setAuthErr(""); }}
                         style={{ background:"none", border:"none", color:C.gold,
