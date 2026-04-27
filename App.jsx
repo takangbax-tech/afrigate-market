@@ -156,11 +156,16 @@ const COUNTRIES = [
 
 // ── Pillars ──────────────────────────────────────────────────────────────────
 const PILLARS = [
-  { id:"realestate", icon:"🏛", en:"Real Estate",  fr:"Immobilier"  },
-  { id:"vehicles",   icon:"🚗", en:"Vehicles",     fr:"Véhicules"   },
-  { id:"containers", icon:"📦", en:"Containers",   fr:"Conteneurs"  },
-  { id:"logistics",  icon:"🚚", en:"Logistics",    fr:"Logistique"  },
-  { id:"shops",      icon:"🏪", en:"Shops",        fr:"Boutiques"   },
+  { id:"realestate",  icon:"🏛",  en:"Real Estate",   fr:"Immobilier"    },
+  { id:"vehicles",    icon:"🚗",  en:"Vehicles",      fr:"Véhicules"     },
+  { id:"containers",  icon:"📦",  en:"Containers",    fr:"Conteneurs"    },
+  { id:"logistics",   icon:"🚚",  en:"Logistics",     fr:"Logistique"    },
+  { id:"shops",       icon:"🏪",  en:"Shops",         fr:"Boutiques"     },
+  { id:"food",        icon:"🐟",  en:"Food & Market", fr:"Alimentation"  },
+  { id:"electronics", icon:"📱",  en:"Electronics",   fr:"Électronique"  },
+  { id:"fashion",     icon:"👗",  en:"Fashion",       fr:"Mode"          },
+  { id:"health",      icon:"🏥",  en:"Health",        fr:"Santé"         },
+  { id:"services",    icon:"💈",  en:"Services",      fr:"Services"      },
 ];
 
 // ── Sample listings ──────────────────────────────────────────────────────────
@@ -193,12 +198,42 @@ const SEED_LISTINGS = [
     img:"https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80",
     seller_name:"AutoElite Nigeria", whatsapp:"2348012345678",
     tiktok:"autoelite_ng", facebook:"autoeliteng",
-    rating:4.7, review_count:15, featured:true, verified:true,
-    status:"approved",
+    rating:4.7, review_count:15, featured:true, verified:true, status:"approved",
     description:"First owner, full AMG Line option. Massaging seats, Burmester audio, panoramic roof. Full service history.",
-    reviews:[
-      {name:"Chukwu E.", rating:5, comment:"Great car, honest seller, smooth transaction.", date:"2025-02-15"},
-    ]},
+    reviews:[{name:"Chukwu E.",rating:5,comment:"Great car, honest seller, smooth transaction.",date:"2025-02-15"}]},
+  { id:40, country:"CM", pillar:"vehicles", title:"Toyota Land Cruiser 200 V8",
+    price:"45,000,000 FCFA", location:"Douala, Akwa",
+    img:"https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80",
+    seller_name:"CM Auto Premium", whatsapp:"237671282427",
+    tiktok:"cmauto", facebook:"cmautopremium",
+    rating:4.8, review_count:22, featured:false, verified:true, status:"approved",
+    description:"Toyota Land Cruiser V8 2021. Full option, leather seats, sunroof. Perfect condition. Service history.",
+    reviews:[]},
+  { id:41, country:"CM", pillar:"vehicles", title:"Camion Benne 10 Tonnes",
+    price:"18,000,000 FCFA", location:"Douala, Port",
+    img:"https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=800&q=80",
+    seller_name:"Trucks Afrique CM", whatsapp:"237671282427",
+    tiktok:"trucksafrique", facebook:"trucksafriquecm",
+    rating:4.6, review_count:9, featured:false, verified:true, status:"approved",
+    description:"10-tonne dump truck. Mercedes Actros 2019. Excellent condition. Ideal for construction and mining.",
+    reviews:[]},
+  { id:42, country:"GH", pillar:"vehicles", title:"Honda Motorcycle CG 125",
+    price:"12,500 GHS", location:"Accra, Tema",
+    img:"https://images.unsplash.com/photo-1558618047-f7c5bce0d0bd?w=800&q=80",
+    seller_name:"Moto Ghana Hub", whatsapp:"233201234567",
+    tiktok:"motoghanahub", facebook:"motoghanahub",
+    rating:4.5, review_count:17, featured:false, verified:true, status:"approved",
+    description:"Honda CG 125 2022. Low mileage, fuel efficient. Perfect for city delivery and commuting.",
+    reviews:[]},
+  { id:43, country:"SN", pillar:"vehicles", title:"Peugeot 308 2022 Diesel",
+    price:"12,500,000 FCFA", location:"Dakar, Plateau",
+    img:"https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80",
+    seller_name:"Dakar Auto Import", whatsapp:"221771234567",
+    tiktok:"dakarauto", facebook:"dakarautoimport",
+    rating:4.7, review_count:11, featured:false, verified:true, status:"approved",
+    description:"Peugeot 308 diesel 2022. First owner, full AC, GPS, parking sensors. Low mileage.",
+    reviews:[]},
+
   { id:4,  country:"CM", pillar:"realestate", title:"Appartement Vue Mer Kribi",
     price:"95,000,000 FCFA", location:"Kribi, Front de Mer",
     img:"https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
@@ -207,33 +242,6 @@ const SEED_LISTINGS = [
     rating:4.6, review_count:19, featured:false, verified:true,
     beds:3, baths:2, sqm:180, status:"approved",
     description:"Three-bedroom beachfront residence. Private beach access, architect interiors, fully furnished.",
-    reviews:[]},
-  { id:5,  country:"CI", pillar:"containers", title:"Conteneur 40ft High Cube",
-    price:"6,800,000 FCFA", location:"Port d'Abidjan",
-    img:"https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&q=80",
-    seller_name:"AfriContainers CI", whatsapp:"2250102030405",
-    tiktok:"africontainers", facebook:"africontainersci",
-    rating:4.5, review_count:11, featured:false, verified:true,
-    status:"approved",
-    description:"ISO-certified 40ft HC. CSC certified, immediate delivery. Storage or international shipping.",
-    reviews:[]},
-  { id:6,  country:"CM", pillar:"logistics", title:"Transport Multimodal Premium",
-    price:"Sur devis / On Quote", location:"Douala ↔ Lagos ↔ Abidjan",
-    img:"https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80",
-    seller_name:"AfriLogistics Pro", whatsapp:"237671282427",
-    tiktok:"afrilogistics", facebook:"afrilogistics",
-    rating:4.8, review_count:44, featured:false, verified:true,
-    status:"approved",
-    description:"End-to-end multimodal freight. Real-time tracking, insurance included, dedicated account manager.",
-    reviews:[]},
-  { id:7,  country:"GH", pillar:"shops", title:"Prime Retail Space Accra",
-    price:"4,500 GHS/month", location:"Accra, Osu High Street",
-    img:"https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80",
-    seller_name:"GoldCoast Properties", whatsapp:"233201234567",
-    tiktok:"goldcoastprop", facebook:"goldcoastproperties",
-    rating:4.4, review_count:8, featured:false, verified:true,
-    status:"approved",
-    description:"High-traffic retail on Osu's premium strip. 85sqm, full AC, private parking, 24h security.",
     reviews:[]},
   { id:8,  country:"CM", pillar:"realestate", title:"Résidence Ngousso Haut Standing",
     price:"120,000,000 FCFA", location:"Yaoundé, Ngousso",
@@ -253,14 +261,340 @@ const SEED_LISTINGS = [
     beds:4, baths:3, sqm:280, status:"approved",
     description:"Elegant villa 500m from the Atlantic. Modern architecture, rooftop terrace, sea views.",
     reviews:[]},
+
+  // ── CONTAINERS (5 listings) ───────────────────────────────────────────────────
+  { id:5,  country:"CI", pillar:"containers", title:"Conteneur 40ft High Cube",
+    price:"6,800,000 FCFA", location:"Port d'Abidjan",
+    img:"https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&q=80",
+    seller_name:"AfriContainers CI", whatsapp:"2250102030405",
+    tiktok:"africontainers", facebook:"africontainersci",
+    rating:4.5, review_count:11, featured:true, verified:true, status:"approved",
+    description:"ISO-certified 40ft HC. CSC certified, immediate delivery. Storage or international shipping.",
+    reviews:[]},
+  { id:44, country:"CM", pillar:"containers", title:"Conteneur 20ft Standard",
+    price:"3,500,000 FCFA", location:"Port de Douala",
+    img:"https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800&q=80",
+    seller_name:"Douala Container Hub", whatsapp:"237671282427",
+    tiktok:"doualacontainer", facebook:"doualacontainerhub",
+    rating:4.6, review_count:19, featured:false, verified:true, status:"approved",
+    description:"20ft standard dry container. Wind and watertight. Ideal for storage or shipping. Available immediately.",
+    reviews:[]},
+  { id:45, country:"NG", pillar:"containers", title:"Reefer Container 40ft Refrigerated",
+    price:"9,200,000 FCFA", location:"Lagos, Apapa Port",
+    img:"https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80",
+    seller_name:"Lagos Reefer Containers", whatsapp:"2348012345678",
+    tiktok:"lagosreefer", facebook:"lagosreefer",
+    rating:4.7, review_count:8, featured:false, verified:true, status:"approved",
+    description:"40ft refrigerated container. Temperature -25°C to +25°C. Ideal for food, pharma and cold chain.",
+    reviews:[]},
+  { id:46, country:"CM", pillar:"containers", title:"Container Bureau Aménagé",
+    price:"4,200,000 FCFA", location:"Yaoundé",
+    img:"https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+    seller_name:"ModuBox CM", whatsapp:"237671282427",
+    tiktok:"moduboxcm", facebook:"moduboxcm",
+    rating:4.8, review_count:14, featured:false, verified:true, status:"approved",
+    description:"20ft container converted to office space. Electricity, AC, windows included. Ready to use.",
+    reviews:[{name:"Martin K.",rating:5,comment:"Perfect mobile office. Very well fitted out!",date:"2025-02-18"}]},
+  { id:47, country:"SN", pillar:"containers", title:"Conteneurs Occasion Certifiés",
+    price:"2,800,000 FCFA", location:"Port de Dakar",
+    img:"https://images.unsplash.com/photo-1565793979263-6ef3f5feaecb?w=800&q=80",
+    seller_name:"Dakar Container Trade", whatsapp:"221771234567",
+    tiktok:"dakarcontainer", facebook:"dakarcontainertrade",
+    rating:4.5, review_count:16, featured:false, verified:true, status:"approved",
+    description:"Used certified containers 20ft and 40ft. Inspected and graded A/B. Great for construction or storage.",
+    reviews:[]},
+
+  // ── LOGISTICS (5 listings) ────────────────────────────────────────────────────
+  { id:6,  country:"CM", pillar:"logistics", title:"Transport Multimodal Premium",
+    price:"Sur devis / On Quote", location:"Douala ↔ Lagos ↔ Abidjan",
+    img:"https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80",
+    seller_name:"AfriLogistics Pro", whatsapp:"237671282427",
+    tiktok:"afrilogistics", facebook:"afrilogistics",
+    rating:4.8, review_count:44, featured:true, verified:true, status:"approved",
+    description:"End-to-end multimodal freight. Real-time tracking, insurance included, dedicated account manager.",
+    reviews:[]},
+  { id:48, country:"CM", pillar:"logistics", title:"Livraison Express Douala",
+    price:"2,000 FCFA", location:"Douala, Toutes Zones",
+    img:"https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?w=800&q=80",
+    seller_name:"SpeedDrop CM", whatsapp:"237671282427",
+    tiktok:"speeddropcm", facebook:"speeddropcm",
+    rating:4.7, review_count:88, featured:false, verified:true, status:"approved",
+    description:"Same day delivery in Douala. Motorbike and van fleet. Packages, documents and goods. Track online.",
+    reviews:[{name:"Alice M.",rating:5,comment:"Very fast delivery! Arrived within 2 hours.",date:"2025-03-14"}]},
+  { id:49, country:"NG", pillar:"logistics", title:"Nigeria Interstate Freight",
+    price:"50,000 NGN/tonne", location:"Lagos → Abuja → PH",
+    img:"https://images.unsplash.com/photo-1616432043562-3671ea2e5242?w=800&q=80",
+    seller_name:"NijaFreight Ltd", whatsapp:"2348012345678",
+    tiktok:"nijafreight", facebook:"nijafreightltd",
+    rating:4.6, review_count:33, featured:false, verified:true, status:"approved",
+    description:"Interstate haulage across Nigeria. Lagos, Abuja, Port Harcourt, Kano. GPS tracked. Insured cargo.",
+    reviews:[]},
+  { id:50, country:"CM", pillar:"logistics", title:"Dédouanement & Clearing Douala",
+    price:"150,000 FCFA", location:"Port de Douala",
+    img:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+    seller_name:"CM Customs Broker", whatsapp:"237671282427",
+    tiktok:"cmcustoms", facebook:"cmcustomsbroker",
+    rating:4.9, review_count:27, featured:false, verified:true, status:"approved",
+    description:"Full customs clearance services. Import and export. Fast processing, all documentation handled.",
+    reviews:[{name:"Ibrahim D.",rating:5,comment:"Cleared my container in 2 days. Very professional!",date:"2025-03-07"}]},
   { id:10, country:"FR", pillar:"logistics", title:"Import/Export Europe-Afrique",
     price:"On Quote / Sur Devis", location:"Paris → Douala / Abidjan",
     img:"https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80",
     seller_name:"EuroAfri Freight", whatsapp:"33612345678",
     tiktok:"euroafrifreight", facebook:"euroafrifreight",
-    rating:4.7, review_count:29, featured:false, verified:true,
-    status:"approved",
+    rating:4.7, review_count:29, featured:false, verified:true, status:"approved",
     description:"Specialist France-Africa freight. Customs clearance included. Paris, Lyon and Marseille depots.",
+    reviews:[]},
+
+  // ── SHOPS (5 listings) ────────────────────────────────────────────────────────
+  { id:7,  country:"GH", pillar:"shops", title:"Prime Retail Space Accra",
+    price:"4,500 GHS/month", location:"Accra, Osu High Street",
+    img:"https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80",
+    seller_name:"GoldCoast Properties", whatsapp:"233201234567",
+    tiktok:"goldcoastprop", facebook:"goldcoastproperties",
+    rating:4.4, review_count:8, featured:true, verified:true, status:"approved",
+    description:"High-traffic retail on Osu's premium strip. 85sqm, full AC, private parking, 24h security.",
+    reviews:[]},
+  { id:51, country:"CM", pillar:"shops", title:"Boutique à Louer Akwa Douala",
+    price:"120,000 FCFA/mois", location:"Douala, Akwa",
+    img:"https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=800&q=80",
+    seller_name:"Immo Commerce CM", whatsapp:"237671282427",
+    tiktok:"immocommercecm", facebook:"immocommercecm",
+    rating:4.7, review_count:12, featured:false, verified:true, status:"approved",
+    description:"Shop space for rent in Akwa commercial zone. 60sqm, ground floor, high foot traffic. Ready to occupy.",
+    reviews:[]},
+  { id:52, country:"CM", pillar:"shops", title:"Supermarché à Vendre Yaoundé",
+    price:"85,000,000 FCFA", location:"Yaoundé, Bastos",
+    img:"https://images.unsplash.com/photo-1534723452862-4c874018d66d?w=800&q=80",
+    seller_name:"Business Transfer CM", whatsapp:"237671282427",
+    tiktok:"businesstransfercm", facebook:"businesstransfercm",
+    rating:4.8, review_count:6, featured:false, verified:true, status:"approved",
+    description:"Fully equipped supermarket for sale. 200sqm, complete stock, refrigeration units, 5 years lease.",
+    reviews:[{name:"Georges T.",rating:5,comment:"Great investment opportunity. Very well equipped store.",date:"2025-03-01"}]},
+  { id:53, country:"NG", pillar:"shops", title:"Lagos Shopping Mall Kiosk",
+    price:"180,000 NGN/month", location:"Lagos, Ikeja Mall",
+    img:"https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+    seller_name:"Ikeja Mall Leasing", whatsapp:"2348012345678",
+    tiktok:"ikejamalll", facebook:"ikejamallng",
+    rating:4.6, review_count:9, featured:false, verified:true, status:"approved",
+    description:"Prime kiosk in Ikeja City Mall. 15sqm. High foot traffic. Ideal for fashion, phones or food.",
+    reviews:[]},
+  { id:54, country:"CI", pillar:"shops", title:"Local Commercial Plateau Abidjan",
+    price:"250,000 FCFA/mois", location:"Abidjan, Plateau",
+    img:"https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?w=800&q=80",
+    seller_name:"Abidjan Commerce CI", whatsapp:"2250102030405",
+    tiktok:"abidjancommerce", facebook:"abidjancommerceci",
+    rating:4.7, review_count:11, featured:false, verified:true, status:"approved",
+    description:"Commercial space in central Plateau. 45sqm. Ground floor. Ideal for bank, pharmacy or boutique.",
+    reviews:[]},
+  // ── FOOD & MARKET (5 listings) ───────────────────────────────────────────────
+  { id:11, country:"CM", pillar:"food", title:"Youpwe Fresh Fish Market",
+    price:"500 FCFA/kg", location:"Douala, Youpwe",
+    img:"https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&q=80",
+    seller_name:"Youpwe Fish Traders", whatsapp:"237671282427",
+    tiktok:"youpwefish", facebook:"youpwefish",
+    rating:4.8, review_count:52, featured:true, verified:true, status:"approved",
+    description:"Fresh fish, shrimp, crab and seafood daily. Direct from the Atlantic. Wholesale and retail available.",
+    reviews:[{name:"Mama Ngo",rating:5,comment:"Best fresh fish in Douala! Very fresh every morning.",date:"2025-03-10"}]},
+  { id:16, country:"CM", pillar:"food", title:"Marché Fruits & Légumes Bio",
+    price:"200 FCFA/kg", location:"Yaoundé, Marché Mfoundi",
+    img:"https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80",
+    seller_name:"Bio Harvest CM", whatsapp:"237671282427",
+    tiktok:"bioharvestcm", facebook:"bioharvestcm",
+    rating:4.7, review_count:38, featured:false, verified:true, status:"approved",
+    description:"Fresh organic fruits and vegetables daily. Tomatoes, plantains, mangoes, avocados. Delivery available.",
+    reviews:[]},
+  { id:17, country:"NG", pillar:"food", title:"Lagos Rice & Grain Wholesale",
+    price:"45,000 NGN/bag", location:"Lagos, Mile 12 Market",
+    img:"https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80",
+    seller_name:"Nigeria Grains Hub", whatsapp:"2348012345678",
+    tiktok:"nigeriagrains", facebook:"nigeriagrainshub",
+    rating:4.6, review_count:29, featured:false, verified:true, status:"approved",
+    description:"Premium rice, beans, garri, semolina. Wholesale prices. Nationwide delivery. Minimum 10 bags.",
+    reviews:[]},
+  { id:18, country:"CM", pillar:"food", title:"Boucherie Premium Viande Fraîche",
+    price:"3,500 FCFA/kg", location:"Douala, Bonamoussadi",
+    img:"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=800&q=80",
+    seller_name:"Boucherie du Wouri", whatsapp:"237671282427",
+    tiktok:"boucheriewouri", facebook:"boucherieduwouri",
+    rating:4.8, review_count:44, featured:false, verified:true, status:"approved",
+    description:"Fresh beef, mutton, chicken and pork. Halal certified. Custom cuts available. Daily fresh stock.",
+    reviews:[{name:"Chef Pierre",rating:5,comment:"Best quality meat in Douala. Always fresh!",date:"2025-03-05"}]},
+  { id:19, country:"CI", pillar:"food", title:"Restaurant Cuisine Africaine Abidjan",
+    price:"3,000 FCFA/plat", location:"Abidjan, Plateau",
+    img:"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&q=80",
+    seller_name:"Maquis Chez Fatou", whatsapp:"2250102030405",
+    tiktok:"chezfatou", facebook:"maquischezfatou",
+    rating:4.9, review_count:67, featured:true, verified:true, status:"approved",
+    description:"Authentic West African cuisine. Attiéké, kedjenou, aloco. Catering available for events and parties.",
+    reviews:[{name:"Kouamé A.",rating:5,comment:"Best attiéké in Abidjan! Very authentic and delicious.",date:"2025-03-01"}]},
+
+  // ── ELECTRONICS (5 listings) ──────────────────────────────────────────────────
+  { id:20, country:"CM", pillar:"electronics", title:"iPhone 15 Pro Max 256GB",
+    price:"750,000 FCFA", location:"Douala, Akwa",
+    img:"https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&q=80",
+    seller_name:"TechZone Cameroon", whatsapp:"237671282427",
+    tiktok:"techzonecm", facebook:"techzonecm",
+    rating:4.9, review_count:34, featured:true, verified:true, status:"approved",
+    description:"Brand new sealed iPhone 15 Pro Max. All colors available. 1 year warranty included.",
+    reviews:[{name:"Kevin T.",rating:5,comment:"Genuine product, very fast delivery!",date:"2025-03-15"}]},
+  { id:21, country:"CM", pillar:"electronics", title:"Samsung Galaxy S24 Ultra",
+    price:"620,000 FCFA", location:"Yaoundé, Bastos",
+    img:"https://images.unsplash.com/photo-1706439136067-1d45e4fd8b80?w=800&q=80",
+    seller_name:"Galaxy Shop CM", whatsapp:"237671282427",
+    tiktok:"galaxyshopcm", facebook:"galaxyshopcm",
+    rating:4.8, review_count:21, featured:false, verified:true, status:"approved",
+    description:"Samsung Galaxy S24 Ultra 512GB. Titanium finish. S-Pen included. All network bands supported.",
+    reviews:[]},
+  { id:22, country:"NG", pillar:"electronics", title:"HP Laptop Core i7 16GB RAM",
+    price:"380,000 NGN", location:"Lagos, Computer Village",
+    img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80",
+    seller_name:"Lagos Tech Hub", whatsapp:"2348012345678",
+    tiktok:"lagostechhub", facebook:"lagostechhub",
+    rating:4.7, review_count:18, featured:false, verified:true, status:"approved",
+    description:"HP Laptop 15 Core i7 12th gen, 16GB RAM, 512GB SSD. Windows 11 pre-installed. 1 year warranty.",
+    reviews:[]},
+  { id:23, country:"GH", pillar:"electronics", title:"Samsung 55\" 4K Smart TV",
+    price:"8,500 GHS", location:"Accra, Tema",
+    img:"https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800&q=80",
+    seller_name:"Accra Electronics", whatsapp:"233201234567",
+    tiktok:"accraelectronics", facebook:"accraelectronics",
+    rating:4.6, review_count:14, featured:false, verified:true, status:"approved",
+    description:"Samsung 55 inch 4K UHD Smart TV. Netflix, YouTube built-in. Free wall mounting included.",
+    reviews:[]},
+  { id:24, country:"CM", pillar:"electronics", title:"Réparation Téléphones & Laptops",
+    price:"5,000 FCFA", location:"Douala, Ndokotti",
+    img:"https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=800&q=80",
+    seller_name:"Fix It Cameroon", whatsapp:"237671282427",
+    tiktok:"fixitcm", facebook:"fixitcameroon",
+    rating:4.8, review_count:89, featured:false, verified:true, status:"approved",
+    description:"Professional phone and laptop repair. Screen replacement, battery, charging port. Same day service.",
+    reviews:[{name:"Paul N.",rating:5,comment:"Fixed my iPhone screen in 30 minutes. Excellent!",date:"2025-02-25"}]},
+
+  // ── FASHION (5 listings) ──────────────────────────────────────────────────────
+  { id:25, country:"CM", pillar:"fashion", title:"Boutique Mode Africaine Premium",
+    price:"15,000 FCFA", location:"Yaoundé, Centre Ville",
+    img:"https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80",
+    seller_name:"AfriStyle Fashion", whatsapp:"237671282427",
+    tiktok:"afristyle", facebook:"afristylecm",
+    rating:4.7, review_count:28, featured:true, verified:true, status:"approved",
+    description:"Latest African fashion: dashiki, kente, ankara. Men, women and children. Custom tailoring available.",
+    reviews:[]},
+  { id:26, country:"CM", pillar:"fashion", title:"Chaussures & Sacs de Luxe",
+    price:"25,000 FCFA", location:"Douala, Akwa",
+    img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80",
+    seller_name:"Luxury Feet CM", whatsapp:"237671282427",
+    tiktok:"luxuryfeetcm", facebook:"luxuryfeetcm",
+    rating:4.8, review_count:33, featured:false, verified:true, status:"approved",
+    description:"Designer shoes, heels, sneakers and handbags. Nike, Adidas, local designers. All sizes available.",
+    reviews:[{name:"Marie T.",rating:5,comment:"Beautiful shoes! Great quality and fair price.",date:"2025-03-08"}]},
+  { id:27, country:"NG", pillar:"fashion", title:"Men's Agbada & Senator Suits",
+    price:"85,000 NGN", location:"Lagos, Balogun Market",
+    img:"https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&q=80",
+    seller_name:"Lagos Tailor King", whatsapp:"2348012345678",
+    tiktok:"lagostailorking", facebook:"lagostailorking",
+    rating:4.9, review_count:47, featured:false, verified:true, status:"approved",
+    description:"Premium agbada, senator and native attire. Custom measurements. Ready in 3-5 days. All fabrics.",
+    reviews:[]},
+  { id:28, country:"CI", pillar:"fashion", title:"Vêtements Enfants & Bébés",
+    price:"8,000 FCFA", location:"Abidjan, Adjamé",
+    img:"https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=800&q=80",
+    seller_name:"Bébé Mode CI", whatsapp:"2250102030405",
+    tiktok:"bebemodeCI", facebook:"bebemodeci",
+    rating:4.6, review_count:22, featured:false, verified:true, status:"approved",
+    description:"Beautiful clothing for babies and children 0-12 years. Everyday wear and party outfits.",
+    reviews:[]},
+  { id:29, country:"CM", pillar:"fashion", title:"Perruques & Extensions Cheveux",
+    price:"35,000 FCFA", location:"Douala, Bonanjo",
+    img:"https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80",
+    seller_name:"Hair Queen CM", whatsapp:"237671282427",
+    tiktok:"hairqueencm", facebook:"hairqueencm",
+    rating:4.7, review_count:56, featured:false, verified:true, status:"approved",
+    description:"Human hair wigs, Brazilian extensions, Peruvian bundles. All textures: straight, curly, wavy.",
+    reviews:[]},
+
+  // ── HEALTH (5 listings) ───────────────────────────────────────────────────────
+  { id:30, country:"CM", pillar:"health", title:"Clinique Dentaire Sourire d'Afrique",
+    price:"10,000 FCFA / consultation", location:"Douala, Bonanjo",
+    img:"https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80",
+    seller_name:"Dr. Mbarga Jean-Paul", whatsapp:"237671282427",
+    tiktok:"", facebook:"souriredafrique",
+    rating:4.9, review_count:67, featured:true, verified:true, status:"approved",
+    description:"Complete dental care: cleaning, fillings, extractions, whitening. Modern equipment. Bilingual EN/FR.",
+    reviews:[{name:"Sophie M.",rating:5,comment:"Excellent dentist! Very professional and painless.",date:"2025-02-20"}]},
+  { id:31, country:"CM", pillar:"health", title:"Clinique Généraliste Dr. Nkeng",
+    price:"8,000 FCFA / consultation", location:"Yaoundé, Bastos",
+    img:"https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
+    seller_name:"Dr. Nkeng Patrick", whatsapp:"237671282427",
+    tiktok:"", facebook:"cliniquedrNkeng",
+    rating:4.8, review_count:43, featured:false, verified:true, status:"approved",
+    description:"General medicine, consultations, vaccinations, blood tests. Pediatrics and adult care.",
+    reviews:[]},
+  { id:32, country:"NG", pillar:"health", title:"Lagos Eye Care Specialist Centre",
+    price:"15,000 NGN", location:"Lagos, Victoria Island",
+    img:"https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=800&q=80",
+    seller_name:"ClearVision Lagos", whatsapp:"2348012345678",
+    tiktok:"clearvisionlag", facebook:"clearvisionlagos",
+    rating:4.7, review_count:31, featured:false, verified:true, status:"approved",
+    description:"Full eye examinations, prescription glasses, contact lenses. Cataract surgery available.",
+    reviews:[]},
+  { id:33, country:"CM", pillar:"health", title:"Pharmacie Moderne 24h/24",
+    price:"Prix variable", location:"Douala, Akwa",
+    img:"https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&q=80",
+    seller_name:"Pharmacie du Centre", whatsapp:"237671282427",
+    tiktok:"", facebook:"pharmacieducentre",
+    rating:4.8, review_count:112, featured:false, verified:true, status:"approved",
+    description:"All medicines available. Open 24 hours. Delivery service. Licensed pharmacist on duty always.",
+    reviews:[{name:"Jean B.",rating:5,comment:"Always available day and night. Very professional!",date:"2025-03-12"}]},
+  { id:34, country:"CM", pillar:"health", title:"Clinique Maternité Femme & Santé",
+    price:"50,000 FCFA", location:"Douala, Makepe",
+    img:"https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
+    seller_name:"Maternité Makepe", whatsapp:"237671282427",
+    tiktok:"", facebook:"maternitefemme",
+    rating:4.9, review_count:38, featured:false, verified:true, status:"approved",
+    description:"Prenatal care, delivery, postnatal support. Experienced team of midwives and gynecologists. 24h.",
+    reviews:[]},
+
+  // ── SERVICES (5 listings) ─────────────────────────────────────────────────────
+  { id:35, country:"CM", pillar:"services", title:"Salon de Coiffure VIP Douala",
+    price:"5,000 FCFA", location:"Douala, Bonapriso",
+    img:"https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80",
+    seller_name:"Beauty Palace CM", whatsapp:"237671282427",
+    tiktok:"beautypacecm", facebook:"beautypalacecm",
+    rating:4.6, review_count:41, featured:true, verified:true, status:"approved",
+    description:"Professional hair salon: braiding, weaving, relaxing, coloring. Nail care also available.",
+    reviews:[]},
+  { id:36, country:"CM", pillar:"services", title:"Lavage Auto Premium Douala",
+    price:"3,000 FCFA", location:"Douala, Akwa",
+    img:"https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=800&q=80",
+    seller_name:"Shine Auto Wash", whatsapp:"237671282427",
+    tiktok:"shineautowash", facebook:"shineautowash",
+    rating:4.7, review_count:63, featured:false, verified:true, status:"approved",
+    description:"Full car wash, interior cleaning, wax polish. Motorcycles and trucks also. Express 30 min service.",
+    reviews:[{name:"Eric M.",rating:5,comment:"My car looks brand new every time!",date:"2025-03-10"}]},
+  { id:37, country:"CM", pillar:"services", title:"Plombier & Électricien Professionnel",
+    price:"15,000 FCFA", location:"Yaoundé, Bastos",
+    img:"https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80",
+    seller_name:"Fix Home CM", whatsapp:"237671282427",
+    tiktok:"fixhomecm", facebook:"fixhomecm",
+    rating:4.8, review_count:27, featured:false, verified:true, status:"approved",
+    description:"Certified plumber and electrician. Installations, repairs, emergency calls 24h. Fast and reliable.",
+    reviews:[]},
+  { id:38, country:"CM", pillar:"services", title:"Studio Photo & Vidéo Professionnel",
+    price:"50,000 FCFA", location:"Douala, Bonanjo",
+    img:"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80",
+    seller_name:"AfriLens Studio", whatsapp:"237671282427",
+    tiktok:"afrilens", facebook:"afrilensstudio",
+    rating:4.9, review_count:35, featured:false, verified:true, status:"approved",
+    description:"Professional photography and videography. Weddings, events, corporate shoots. Drone footage available.",
+    reviews:[{name:"Sandrine K.",rating:5,comment:"Amazing wedding photos! Very talented photographer.",date:"2025-03-03"}]},
+  { id:39, country:"NG", pillar:"services", title:"Lagos Cleaning & Fumigation Service",
+    price:"25,000 NGN", location:"Lagos, Lekki",
+    img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    seller_name:"CleanPro Lagos", whatsapp:"2348012345678",
+    tiktok:"cleanprolagos", facebook:"cleanprolagos",
+    rating:4.7, review_count:48, featured:false, verified:true, status:"approved",
+    description:"Deep cleaning, fumigation, post-construction cleaning. Offices and homes. Insured and certified team.",
     reviews:[]},
 ];
 
@@ -389,6 +723,17 @@ export default function AfriGateMarket() {
   const [isAdmin,   setIsAdmin]    = useState(false);
   const [adminCreds,setAdminCreds] = useState({ email:"", pass:"" });
   const [adminErr,  setAdminErr]   = useState("");
+
+  // user auth
+  const [currentUser,   setCurrentUser]   = useState(null);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [authTab,       setAuthTab]       = useState("login"); // "login" | "register"
+  const [authLoading,   setAuthLoading]   = useState(false);
+  const [authErr,       setAuthErr]       = useState("");
+  const [registerForm,  setRegisterForm]  = useState({
+    fullName:"", email:"", phone:"", password:"", confirmPassword:"", country:"CM"
+  });
+  const [loginForm, setLoginForm] = useState({ email:"", password:"" });
 
   // payment
   const [payStep,   setPayStep]    = useState(1);
@@ -545,6 +890,8 @@ export default function AfriGateMarket() {
     setDupWarning("");
     // Track in GA
     if (window.gtag) window.gtag("event","listing_submitted",{ pillar:newL.pillar, country:newL.country });
+    // Send confirmation email to seller
+    sendListingSubmittedEmail(currentUser, newL);
     notify(tr(lang,
       "✅ Listing submitted! Admin will review within 24h. You will be notified.",
       "✅ Annonce soumise! L'admin examine sous 24h. Vous serez notifié."));
@@ -559,6 +906,7 @@ export default function AfriGateMarket() {
     setPendingQueue(prev => prev.filter(l => l.id !== id));
     if (sb.isConfigured()) await sb.patch("listings", {status:"approved",verified:true}, {id});
     notify("✅ Listing approved and published!");
+    sendListingApprovedEmail(listings.find(l => l.id === id));
     addNotification(tr(lang,"A listing was approved and is now live.","Une annonce a été approuvée et est maintenant en ligne."));
   };
   const adminReject = async (id) => {
@@ -609,6 +957,109 @@ export default function AfriGateMarket() {
     setShowReview(null);
     setReviewForm({ rating:5, comment:"", reviewer:"" });
     notify(tr(lang,"✅ Review posted! Thank you.","✅ Avis publié! Merci."));
+  };
+
+  // ── Email notifications (EmailJS free tier) ─────────────────────────────────
+  // To activate: sign up at emailjs.com, get your Service ID, Template IDs and Public Key
+  const EMAILJS_SERVICE  = "YOUR_SERVICE_ID";   // replace after signing up
+  const EMAILJS_PUB_KEY  = "YOUR_PUBLIC_KEY";   // replace after signing up
+
+  const sendEmail = async (templateId, params) => {
+    try {
+      await fetch(`https://api.emailjs.com/api/v1.0/email/send`, {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({
+          service_id: EMAILJS_SERVICE,
+          template_id: templateId,
+          user_id: EMAILJS_PUB_KEY,
+          template_params: params,
+        }),
+      });
+    } catch(e) { /* silent fail if not configured */ }
+  };
+
+  const sendWelcomeEmail = (user) => sendEmail("template_welcome", {
+    to_name:  user.fullName,
+    to_email: user.email,
+    reply_to: "admin@afrigate.cm",
+    message:  `Welcome to AfriGate Market, ${user.fullName}! Your account is ready. Start exploring listings across Africa and Europe.`,
+  });
+
+  const sendListingSubmittedEmail = (user, listing) => sendEmail("template_listing", {
+    to_name:    user?.fullName || listing.seller_name,
+    to_email:   user?.email   || "",
+    listing:    listing.title,
+    reply_to:   "admin@afrigate.cm",
+    message:    `Your listing "${listing.title}" has been received and is currently under review. You will be notified once it is approved.`,
+  });
+
+  const sendListingApprovedEmail = (listing) => {
+    // find user by seller name — notify if we have their email
+    const user = registeredUsers.find(u => u.fullName === listing.seller_name);
+    if (!user) return;
+    sendEmail("template_approved", {
+      to_name:  user.fullName,
+      to_email: user.email,
+      listing:  listing.title,
+      reply_to: "admin@afrigate.cm",
+      message:  `Great news! Your listing "${listing.title}" has been approved and is now LIVE on AfriGate Market. Buyers can now find and contact you.`,
+    });
+  };
+
+  // ── Registered users store (local + Supabase) ────────────────────────────────
+  const [registeredUsers, setRegisteredUsers] = useState([]);
+
+  const handleRegister = async () => {
+    setAuthErr("");
+    const { fullName, email, phone, password, confirmPassword } = registerForm;
+    if (!fullName.trim())            { setAuthErr("Please enter your full name."); return; }
+    if (!email.includes("@"))        { setAuthErr("Please enter a valid email address."); return; }
+    if (password.length < 6)         { setAuthErr("Password must be at least 6 characters."); return; }
+    if (password !== confirmPassword){ setAuthErr("Passwords do not match."); return; }
+    if (registeredUsers.find(u => u.email === email)) {
+      setAuthErr("An account with this email already exists."); return;
+    }
+    setAuthLoading(true);
+    await new Promise(r => setTimeout(r, 1000));
+    const newUser = {
+      id: Date.now(), fullName, email, phone,
+      country: registerForm.country,
+      joinedAt: new Date().toISOString(),
+      avatar: fullName.charAt(0).toUpperCase(),
+    };
+    setRegisteredUsers(u => [...u, newUser]);
+    setCurrentUser(newUser);
+    setShowAuthModal(false);
+    setRegisterForm({ fullName:"", email:"", phone:"", password:"", confirmPassword:"", country:"CM" });
+    setAuthLoading(false);
+    notify(tr(lang, `🎉 Welcome, ${fullName}! Check your email for a welcome message.`,
+                    `🎉 Bienvenue, ${fullName}! Vérifiez votre email.`));
+    addNotification(tr(lang,
+      `Welcome to AfriGate Market, ${fullName}! Your account is ready.`,
+      `Bienvenue sur AfriGate Market, ${fullName}! Votre compte est prêt.`));
+    sendWelcomeEmail(newUser);
+  };
+
+  const handleLogin = async () => {
+    setAuthErr("");
+    const { email, password } = loginForm;
+    if (!email.includes("@")) { setAuthErr("Please enter a valid email address."); return; }
+    if (!password)             { setAuthErr("Please enter your password."); return; }
+    setAuthLoading(true);
+    await new Promise(r => setTimeout(r, 800));
+    const user = registeredUsers.find(u => u.email === email);
+    if (!user) { setAuthErr("No account found with this email. Please register first."); setAuthLoading(false); return; }
+    setCurrentUser(user);
+    setShowAuthModal(false);
+    setLoginForm({ email:"", password:"" });
+    setAuthLoading(false);
+    notify(tr(lang, `Welcome back, ${user.fullName}! 👋`, `Bon retour, ${user.fullName}! 👋`));
+  };
+
+  const handleLogout = () => {
+    setCurrentUser(null);
+    notify(tr(lang, "You have been logged out.", "Vous avez été déconnecté."));
   };
 
   // ── Send chat message ────────────────────────────────────────────────────────
@@ -1240,7 +1691,7 @@ export default function AfriGateMarket() {
             { icon:"🏘", val:listings.filter(l=>l.status==="approved").length, lbl:tr(lang,"Listings","Annonces") },
             { icon:"🌍", val:"12", lbl:tr(lang,"Countries","Pays") },
             { icon:"⭐", val:"4.8", lbl:tr(lang,"Avg Rating","Note Moy.") },
-            { icon:"✅", val:`${listings.filter(l=>l.verified&&l.status==="approved").length}`, lbl:tr(lang,"Verified","Vérifiés") },
+            { icon:"✅", val:"10", lbl:tr(lang,"Categories","Catégories") },
           ].map((s,i) => (
             <div key={i} style={{ background:"#fff", borderRadius:12, padding:"10px 8px",
               textAlign:"center", boxShadow:"0 1px 8px rgba(0,0,0,.05)",
@@ -1378,7 +1829,7 @@ export default function AfriGateMarket() {
             badge: wishlist.length },
           { icon:"➕", lbl:tr(lang,"Post","Publier"),   act:() => setShowPost(true) },
           { icon:"✉️", lbl:tr(lang,"Chat","Messages"),  act:() => setShowChat(true) },
-          { icon:"👤", lbl:tr(lang,"Account","Compte"), act:() => setShowPayment(true) },
+          { icon: currentUser ? <span style={{ width:22, height:22, borderRadius:"50%", background:`linear-gradient(135deg,${C.gold},${C.goldL})`, display:"inline-flex", alignItems:"center", justifyContent:"center", fontSize:11, fontWeight:800, color:C.navy }}>{currentUser.avatar}</span> : "👤", lbl:tr(lang,"Account","Compte"), act:() => { setShowAuthModal(true); setAuthTab(currentUser ? "profile" : "login"); setAuthErr(""); } },
         ].map((item, i) => (
           <button key={i} onClick={item.act}
             style={{ flex:1, display:"flex", flexDirection:"column",
@@ -1402,6 +1853,194 @@ export default function AfriGateMarket() {
           </button>
         ))}
       </div>
+
+      {/* ══ AUTH MODAL (Register / Login / Profile) ════════════════════════ */}
+      {showAuthModal && (
+        <div style={MODAL} onClick={() => setShowAuthModal(false)}>
+          <div style={SHEET} onClick={e => e.stopPropagation()} className="slideUp">
+
+            {/* Header */}
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:20 }}>
+              <h3 style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:24, fontWeight:400, color:C.navy }}>
+                {currentUser
+                  ? tr(lang, "My Account", "Mon Compte")
+                  : authTab === "register"
+                    ? tr(lang, "Create Account", "Créer un Compte")
+                    : tr(lang, "Sign In", "Se Connecter")}
+              </h3>
+              <button onClick={() => setShowAuthModal(false)}
+                style={{ background:"none", border:"none", fontSize:22, cursor:"pointer", color:C.slate }}>✕</button>
+            </div>
+
+            {/* ── PROFILE VIEW (logged in) ── */}
+            {currentUser ? (
+              <div>
+                <div style={{ textAlign:"center", marginBottom:24 }}>
+                  <div style={{ width:72, height:72, borderRadius:"50%",
+                    background:`linear-gradient(135deg,${C.gold},${C.goldL})`,
+                    display:"flex", alignItems:"center", justifyContent:"center",
+                    fontSize:28, fontWeight:800, color:C.navy, margin:"0 auto 12px" }}>
+                    {currentUser.avatar}
+                  </div>
+                  <div style={{ fontWeight:700, fontSize:18, color:C.navy }}>{currentUser.fullName}</div>
+                  <div style={{ color:C.slate, fontSize:13, marginTop:4 }}>{currentUser.email}</div>
+                  {currentUser.phone && (
+                    <div style={{ color:C.mist, fontSize:12, marginTop:2 }}>📱 {currentUser.phone}</div>
+                  )}
+                  <div style={{ color:C.mist, fontSize:11, marginTop:4 }}>
+                    {getCountry(currentUser.country).flag} {getCountry(currentUser.country).name}
+                  </div>
+                </div>
+
+                <div style={{ background:C.stone, borderRadius:12, padding:"14px 16px", marginBottom:16 }}>
+                  <div style={{ fontSize:11, color:C.slate, fontWeight:700, letterSpacing:1,
+                    textTransform:"uppercase", marginBottom:8 }}>
+                    {tr(lang,"Member Since","Membre Depuis")}
+                  </div>
+                  <div style={{ fontSize:13, color:C.navy }}>
+                    {new Date(currentUser.joinedAt).toLocaleDateString("en-GB", {
+                      day:"numeric", month:"long", year:"numeric"
+                    })}
+                  </div>
+                </div>
+
+                <div style={{ background:C.warnBg, borderRadius:12, padding:"14px 16px", marginBottom:20,
+                  border:`1px solid ${C.warn}30` }}>
+                  <div style={{ fontSize:12, color:C.warn, fontWeight:700, marginBottom:4 }}>
+                    🎁 {tr(lang,"60-Day Free Trial Active","Essai Gratuit 60 Jours Actif")}
+                  </div>
+                  <div style={{ fontSize:11, color:C.slate }}>
+                    {tr(lang,"Upgrade to Pro for 9,900 FCFA/month","Passez Pro pour 9 900 FCFA/mois")}
+                  </div>
+                </div>
+
+                <button onClick={() => { setShowPayment(true); setShowAuthModal(false); }}
+                  style={{ ...BTN_GOLD, width:"100%", marginBottom:10 }}>
+                  ⭐ {tr(lang,"Upgrade to Pro","Passer à Pro")}
+                </button>
+                <button onClick={handleLogout}
+                  style={{ ...BTN_NAVY, width:"100%", background:"transparent",
+                    color:C.danger, border:`1.5px solid ${C.danger}40` }}>
+                  {tr(lang,"Sign Out","Se Déconnecter")}
+                </button>
+              </div>
+
+            ) : (
+              <div>
+                {/* Tab switcher */}
+                <div style={{ display:"flex", background:C.stone, borderRadius:10,
+                  padding:4, marginBottom:22 }}>
+                  {[["login", tr(lang,"Sign In","Connexion")],
+                    ["register", tr(lang,"Register","S'inscrire")]].map(([tab, lbl]) => (
+                    <button key={tab} onClick={() => { setAuthTab(tab); setAuthErr(""); }}
+                      style={{ flex:1, padding:"9px", border:"none", cursor:"pointer",
+                        borderRadius:8, fontWeight:700, fontSize:13, transition:"all .2s",
+                        background: authTab===tab ? C.navy : "transparent",
+                        color: authTab===tab ? "#fff" : C.slate }}>
+                      {lbl}
+                    </button>
+                  ))}
+                </div>
+
+                {authErr && (
+                  <div style={{ background:"#FFF0F0", border:`1px solid ${C.danger}40`,
+                    borderRadius:9, padding:"10px 14px", marginBottom:14,
+                    color:C.danger, fontSize:12, fontWeight:600 }}>
+                    ⚠️ {authErr}
+                  </div>
+                )}
+
+                {/* ── REGISTER FORM ── */}
+                {authTab === "register" ? (
+                  <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
+                    <div>
+                      <label style={LBL}>{tr(lang,"Full Name *","Nom Complet *")}</label>
+                      <input style={INP} placeholder={tr(lang,"Your full name","Votre nom complet")}
+                        value={registerForm.fullName}
+                        onChange={e => setRegisterForm(f => ({...f, fullName:e.target.value}))}/>
+                    </div>
+                    <div>
+                      <label style={LBL}>{tr(lang,"Email Address *","Adresse Email *")}</label>
+                      <input style={INP} type="email" placeholder="example@gmail.com"
+                        value={registerForm.email}
+                        onChange={e => setRegisterForm(f => ({...f, email:e.target.value}))}/>
+                    </div>
+                    <div>
+                      <label style={LBL}>{tr(lang,"Phone Number (optional)","Téléphone (optionnel)")}</label>
+                      <input style={INP} type="tel" placeholder="+237 6XX XXX XXX"
+                        value={registerForm.phone}
+                        onChange={e => setRegisterForm(f => ({...f, phone:e.target.value}))}/>
+                    </div>
+                    <div>
+                      <label style={LBL}>{tr(lang,"Country","Pays")}</label>
+                      <select style={SEL} value={registerForm.country}
+                        onChange={e => setRegisterForm(f => ({...f, country:e.target.value}))}>
+                        {COUNTRIES.map(c => (
+                          <option key={c.code} value={c.code}>{c.flag} {c.name}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <label style={LBL}>{tr(lang,"Password *","Mot de Passe *")}</label>
+                      <input style={INP} type="password"
+                        placeholder={tr(lang,"Minimum 6 characters","Minimum 6 caractères")}
+                        value={registerForm.password}
+                        onChange={e => setRegisterForm(f => ({...f, password:e.target.value}))}/>
+                    </div>
+                    <div>
+                      <label style={LBL}>{tr(lang,"Confirm Password *","Confirmer le Mot de Passe *")}</label>
+                      <input style={INP} type="password"
+                        placeholder={tr(lang,"Repeat your password","Répétez votre mot de passe")}
+                        value={registerForm.confirmPassword}
+                        onChange={e => setRegisterForm(f => ({...f, confirmPassword:e.target.value}))}/>
+                    </div>
+                    <button onClick={handleRegister} disabled={authLoading}
+                      style={{ ...BTN_GOLD, width:"100%", marginTop:4,
+                        opacity: authLoading ? .7 : 1 }}>
+                      {authLoading ? <Spinner/> : tr(lang,"Create My Account →","Créer Mon Compte →")}
+                    </button>
+                    <p style={{ fontSize:11, color:C.mist, textAlign:"center", lineHeight:1.6 }}>
+                      {tr(lang,
+                        "By registering you agree to our Terms of Service. A welcome email will be sent to your inbox.",
+                        "En vous inscrivant vous acceptez nos CGU. Un email de bienvenue sera envoyé.")}
+                    </p>
+                  </div>
+
+                ) : (
+                  /* ── LOGIN FORM ── */
+                  <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
+                    <div>
+                      <label style={LBL}>{tr(lang,"Email Address","Adresse Email")}</label>
+                      <input style={INP} type="email" placeholder="example@gmail.com"
+                        value={loginForm.email}
+                        onChange={e => setLoginForm(f => ({...f, email:e.target.value}))}/>
+                    </div>
+                    <div>
+                      <label style={LBL}>{tr(lang,"Password","Mot de Passe")}</label>
+                      <input style={INP} type="password"
+                        placeholder={tr(lang,"Your password","Votre mot de passe")}
+                        value={loginForm.password}
+                        onChange={e => setLoginForm(f => ({...f, password:e.target.value}))}/>
+                    </div>
+                    <button onClick={handleLogin} disabled={authLoading}
+                      style={{ ...BTN_GOLD, width:"100%", marginTop:4,
+                        opacity: authLoading ? .7 : 1 }}>
+                      {authLoading ? <Spinner/> : tr(lang,"Sign In →","Se Connecter →")}
+                    </button>
+                    <div style={{ textAlign:"center" }}>
+                      <button onClick={() => { setAuthTab("register"); setAuthErr(""); }}
+                        style={{ background:"none", border:"none", color:C.gold,
+                          fontSize:13, cursor:"pointer", fontWeight:600 }}>
+                        {tr(lang,"No account? Register here","Pas de compte? S'inscrire ici")}
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* ══ COUNTRY PICKER ══════════════════════════════════════════════════ */}
       {showCountryPicker && (
