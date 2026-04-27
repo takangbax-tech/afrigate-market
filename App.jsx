@@ -422,7 +422,7 @@ const SEED_LISTINGS = [
     reviews:[{name:"Chef Pierre",rating:5,comment:"Best quality meat in Douala. Always fresh!",date:"2025-03-05"}]},
   { id:19, country:"CI", pillar:"food", title:"Restaurant Cuisine Africaine Abidjan",
     price:"3,000 FCFA/plat", location:"Abidjan, Plateau",
-    img:"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&q=80",
+    img:"https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=800&q=80",
     seller_name:"Maquis Chez Fatou", whatsapp:"2250102030405",
     tiktok:"chezfatou", facebook:"maquischezfatou",
     rating:4.9, review_count:67, featured:true, verified:true, status:"approved",
@@ -582,7 +582,7 @@ const SEED_LISTINGS = [
     reviews:[]},
   { id:38, country:"CM", pillar:"services", title:"Studio Photo & Vidéo AfriLens",
     price:"50,000 FCFA", location:"Douala, Bonanjo",
-    img:"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80",
+    img:"https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80",
     seller_name:"AfriLens Studio", whatsapp:"237671282427",
     tiktok:"afrilens", facebook:"afrilensstudio",
     rating:4.9, review_count:35, featured:false, verified:true, status:"approved",
@@ -664,18 +664,20 @@ function Logo({ height = 36 }) {
   const [err, setErr] = useState(false);
   if (!err) return (
     <img src="/logo.png" alt="AfriGate Market"
-      style={{ height, width:"auto", objectFit:"contain", display:"block" }}
+      style={{ height, width:"auto", objectFit:"contain", display:"block",
+        filter:"drop-shadow(0 0 8px rgba(184,147,42,0.3))" }}
       onError={() => setErr(true)}/>
   );
+  // Fallback: text logo when image fails
   return (
     <div style={{ display:"flex", alignItems:"center", gap:8, height }}>
       <div style={{ width:height, height, borderRadius:height*.2,
-        background:`linear-gradient(135deg,${C.gold},${C.goldL})`,
+        background:`linear-gradient(135deg,#B8932A,#D4AA3A)`,
         display:"flex", alignItems:"center", justifyContent:"center",
-        fontSize:height*.55 }}>🌍</div>
+        fontSize:height*.5, fontWeight:900, color:"#0D1B2A" }}>AG</div>
       <div>
         <div style={{ fontWeight:800, fontSize:height*.44, color:"#fff", lineHeight:1 }}>
-          <span style={{ color:C.gold }}>Afri</span>Gate
+          <span style={{ color:"#D4AA3A" }}>Afri</span>Gate
         </div>
         <div style={{ fontSize:height*.22, color:"rgba(255,255,255,.5)",
           letterSpacing:3, textTransform:"uppercase" }}>Market</div>
@@ -1142,7 +1144,7 @@ export default function AfriGateMarket() {
 
       {/* Background handshake image — African & international business */}
       <div style={{ position:"absolute", inset:0, pointerEvents:"none",
-        backgroundImage:`url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80')`,
+        backgroundImage:`url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80')`,
         backgroundSize:"cover", backgroundPosition:"center",
         opacity:0.10 }}/>
 
