@@ -570,24 +570,24 @@ const SEED_LISTINGS = [
     seller_name:"Shine Auto Wash", whatsapp:"237671282427",
     tiktok:"shineautowash", facebook:"shineautowash",
     rating:4.7, review_count:63, featured:false, verified:true, status:"approved",
-    description:"Full car wash, interior cleaning, wax polish. Motorcycles and trucks also. Express 30 min service.",
-    reviews:[{name:"Eric M.",rating:5,comment:"My car looks brand new every time!",date:"2025-03-10"}]},
+    description:"Lavage complet, nettoyage intérieur, polish. Motos et camions aussi. Service express 30 min.",
+    reviews:[{name:"Eric M.",rating:5,comment:"Ma voiture est comme neuve à chaque fois!",date:"2025-03-10"}]},
   { id:37, country:"CM", pillar:"services", title:"Plombier & Électricien Professionnel",
     price:"15,000 FCFA", location:"Yaoundé, Bastos",
     img:"https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80",
     seller_name:"Fix Home CM", whatsapp:"237671282427",
     tiktok:"fixhomecm", facebook:"fixhomecm",
     rating:4.8, review_count:27, featured:false, verified:true, status:"approved",
-    description:"Certified plumber and electrician. Installations, repairs, emergency calls 24h. Fast and reliable.",
+    description:"Plombier et électricien certifié. Installations, réparations, urgences 24h. Rapide et fiable.",
     reviews:[]},
-  { id:38, country:"CM", pillar:"services", title:"Studio Photo & Vidéo Professionnel",
+  { id:38, country:"CM", pillar:"services", title:"Studio Photo & Vidéo AfriLens",
     price:"50,000 FCFA", location:"Douala, Bonanjo",
     img:"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80",
     seller_name:"AfriLens Studio", whatsapp:"237671282427",
     tiktok:"afrilens", facebook:"afrilensstudio",
     rating:4.9, review_count:35, featured:false, verified:true, status:"approved",
-    description:"Professional photography and videography. Weddings, events, corporate shoots. Drone footage available.",
-    reviews:[{name:"Sandrine K.",rating:5,comment:"Amazing wedding photos! Very talented photographer.",date:"2025-03-03"}]},
+    description:"Photographie et vidéo professionnelles. Mariages, événements, corporate. Drone disponible.",
+    reviews:[{name:"Sandrine K.",rating:5,comment:"Photos de mariage magnifiques! Photographe très talentueux.",date:"2025-03-03"}]},
   { id:39, country:"NG", pillar:"services", title:"Lagos Cleaning & Fumigation Service",
     price:"25,000 NGN", location:"Lagos, Lekki",
     img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
@@ -1139,6 +1139,16 @@ export default function AfriGateMarket() {
       justifyContent:"space-between", padding:"44px 22px 36px",
       position:"relative", overflow:"hidden" }}>
       <style>{GLOBAL_CSS}</style>
+
+      {/* Background handshake image — African & international business */}
+      <div style={{ position:"absolute", inset:0, pointerEvents:"none",
+        backgroundImage:`url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80')`,
+        backgroundSize:"cover", backgroundPosition:"center",
+        opacity:0.10 }}/>
+
+      {/* Dark overlay on top of image */}
+      <div style={{ position:"absolute", inset:0, pointerEvents:"none",
+        background:`linear-gradient(165deg,${C.navy}EE 0%,${C.navyMid}CC 55%,#0A1520EE 100%)` }}/>
 
       {/* Ambient glow */}
       <div style={{ position:"absolute", inset:0, pointerEvents:"none",
