@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>AfriGate Market — Offline</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0A1128;
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 24px;
+    }
+    .icon { font-size: 64px; margin-bottom: 20px; }
+    h1 { color: #D4AF37; font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+    p  { color: rgba(255,255,255,.6); font-size: 14px; line-height: 1.7; margin-bottom: 24px; max-width: 300px; }
+    button {
+      background: linear-gradient(135deg, #b8962e, #D4AF37, #f0cc5a);
+      color: #0A1128;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 32px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="icon">🌍</div>
+    <h1>AfriGate Market</h1>
+    <p>You are offline. Please reconnect to browse listings.</p>
+    <button onclick="location.reload()">Try Again</button>
+  </div>
+</body>
+</html>
